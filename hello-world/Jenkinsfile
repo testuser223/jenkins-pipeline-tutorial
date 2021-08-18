@@ -18,7 +18,7 @@ pipeline {
         }
           stage('modified') {
             steps {
-                echo 'new stage test ' 
+                echo 'new stage test passed ' 
             }
           }
         stage('Run Unit Tests') {
