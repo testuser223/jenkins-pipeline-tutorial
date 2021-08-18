@@ -1,40 +1,24 @@
 pipeline {
     agent any 
-    stages {
-        stage('Static Analysis') {
+     stages {
+        stage('Example') {
+            input {
+                message "Should we continue?"
+                ok "Yes, we should."
+                submitter "luffy,naruto"
+                parameters {
+                    string(name: 'PERSON', defaultValue: 'Mr kakashi', description: 'Who should I greet ?')
+                }
+            }
             steps {
-                echo 'Run the static analysis to the code' 
+                echo "Hello, ${PERSON}, Suup buddy."
             }
         }
-        stage('Compile') {
-            steps {
-                echo 'Compile the source code change 0 ' 
-            }
-        }
-        stage('Security Check') {
-            steps {
-                echo 'Run the security check against the application' 
-            }
-        }
+    }
           stage('modified') {
             steps {
                 echo 'new stage test passed ' 
             }
           }
-        stage('Run Unit Tests') {
-            steps {
-                echo 'Run unit tests from the source code' 
-            }
-        }
-        stage('Run Integration Tests') {
-            steps {
-                echo 'Run only crucial integration tests from the source code' 
-            }
-        }
-        stage('Publish Artifacts') {
-            steps {
-                echo 'Save the assemblies generated from the compilation' 
-            }
-        }
     }
 }
