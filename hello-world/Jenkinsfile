@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Compile') {
             steps {
-                echo 'Compile the source code' 
+                echo 'Compile the source code change 0 ' 
             }
         }
         stage('Security Check') {
@@ -16,6 +16,11 @@ pipeline {
                 echo 'Run the security check against the application' 
             }
         }
+          stage('modified') {
+            steps {
+                echo 'new stage test ' 
+            }
+          }
         stage('Run Unit Tests') {
             steps {
                 echo 'Run unit tests from the source code' 
